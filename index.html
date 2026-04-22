@@ -15,20 +15,16 @@
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
-
         body {
             background: #eef2f7;
             font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', 'PingFang SC', Roboto, Helvetica, Arial, sans-serif;
-            padding: 16px 12px 32px;
+            padding: 20px 14px 40px;
             color: #1a2c3e;
         }
-
-        /* 主容器 */
         .container {
             max-width: 560px;
             margin: 0 auto;
         }
-
         /* 头部 */
         .header {
             text-align: center;
@@ -37,7 +33,7 @@
         .header h1 {
             font-size: 1.85rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #1e3c72, #2b4f8c);
+            background: linear-gradient(135deg, #1e3c72, #2b5a8c);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -51,17 +47,15 @@
             color: #5b6e8c;
             margin-top: 6px;
         }
-
         /* 卡片样式 */
         .card {
             background: white;
             border-radius: 28px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
-            padding: 20px 18px;
+            padding: 22px 20px;
             margin-bottom: 20px;
             transition: all 0.2s ease;
         }
-
         /* 表单项 */
         .field-row {
             margin-bottom: 18px;
@@ -78,14 +72,14 @@
         }
         .field-control {
             flex: 1;
-            min-width: 140px;
+            min-width: 150px;
         }
         select, input {
             width: 100%;
             padding: 12px 14px;
             font-size: 0.9rem;
             border: 1.5px solid #e2e8f0;
-            border-radius: 24px;
+            border-radius: 28px;
             background: #ffffff;
             transition: 0.2s;
             font-family: inherit;
@@ -98,7 +92,7 @@
         .radio-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 12px;
             align-items: center;
         }
         .radio-group label {
@@ -109,7 +103,7 @@
             font-weight: 500;
             color: #2d3e50;
             background: #f8fafc;
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 40px;
             border: 1px solid #e2edf2;
             cursor: pointer;
@@ -126,12 +120,11 @@
             border-color: #2b6a9e;
             color: #1e3c72;
         }
-
         /* 组合贷专属区块 */
         .combo-box {
             background: #f9fbfe;
             border-radius: 24px;
-            padding: 14px 16px;
+            padding: 16px 16px;
             margin: 12px 0 8px;
             border: 1px solid #e9edf2;
         }
@@ -148,7 +141,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             align-items: center;
         }
         .combo-row .sub-label {
@@ -165,13 +158,11 @@
             padding: 10px 12px;
             font-size: 0.85rem;
         }
-
         hr {
             margin: 14px 0;
             border: none;
             border-top: 1px solid #eef2f8;
         }
-
         /* 按钮 */
         .calc-btn {
             background: #1e3c72;
@@ -184,7 +175,7 @@
             border-radius: 44px;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 10px;
+            margin-top: 12px;
             margin-bottom: 4px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
@@ -192,7 +183,6 @@
             transform: scale(0.97);
             background: #0f2b4f;
         }
-
         /* 结果区域 */
         .result-card {
             background: #ffffff;
@@ -206,7 +196,7 @@
         .result-item {
             background: #fafcff;
             border-radius: 20px;
-            padding: 10px 12px;
+            padding: 12px 12px;
             border: 1px solid #eef2fa;
         }
         .result-label {
@@ -223,11 +213,6 @@
             word-break: break-word;
             line-height: 1.3;
         }
-        .result-value.small-note {
-            font-size: 0.75rem;
-            font-weight: normal;
-            color: #2d6a4f;
-        }
         .footnote {
             margin-top: 16px;
             text-align: center;
@@ -237,16 +222,10 @@
             padding: 10px;
             border-radius: 20px;
         }
-
-        /* 辅助 */
-        .text-muted {
-            font-size: 0.7rem;
-            color: #8ca0b5;
-            margin-left: 8px;
-        }
         .inline-hint {
             font-size: 0.7rem;
-            color: #7f8fa4;
+            color: #7f8fa5;
+            margin-left: 6px;
         }
         @media (max-width: 480px) {
             .field-row {
@@ -262,7 +241,7 @@
             }
             .radio-group {
                 width: 100%;
-                justify-content: space-between;
+                justify-content: flex-start;
             }
             .result-grid {
                 grid-template-columns: 1fr;
@@ -323,17 +302,17 @@
         <div class="field-row">
             <div class="field-label">💰 贷款总额</div>
             <div class="field-control">
-                <input type="number" id="totalAmountWan" value="100" step="1" placeholder="单位：万元">
-                <span class="inline-hint"> 万元</span>
+                <input type="number" id="totalAmountWan" value="100" step="10" placeholder="单位：万元">
+                <span class="inline-hint">万元</span>
             </div>
         </div>
 
-        <!-- 按揭年限 -->
+        <!-- 按揭年限 1-30年，默认12年 -->
         <div class="field-row">
             <div class="field-label">📅 按揭年限</div>
             <div class="field-control">
                 <select id="loanYears"></select>
-                <span class="inline-hint"> 年</span>
+                <span class="inline-hint">年 (1-30)</span>
             </div>
         </div>
 
@@ -363,7 +342,7 @@
                 <div class="field-label">📈 贷款利率</div>
                 <div class="field-control">
                     <input type="number" id="singleRate" value="3.2" step="0.05" placeholder="年利率 %">
-                    <span class="inline-hint"> %</span>
+                    <span class="inline-hint">%</span>
                 </div>
             </div>
         </div>
@@ -389,13 +368,13 @@
 </div>
 
 <script>
-    // 动态生成年限 1-50
+    // 动态生成年限 1-30 年，默认12年
     const yearSelect = document.getElementById('loanYears');
-    for (let i = 1; i <= 50; i++) {
+    for (let i = 1; i <= 30; i++) {
         const option = document.createElement('option');
         option.value = i;
         option.textContent = i + ' 年';
-        if (i === 30) option.selected = true;
+        if (i === 12) option.selected = true;
         yearSelect.appendChild(option);
     }
 
@@ -492,8 +471,8 @@
                 if (radio.checked) { repayMethod = radio.value; break; }
             }
             const years = parseInt(yearSelect.value);
-            if (isNaN(years) || years < 1 || years > 50) {
-                alert('请选择有效的按揭年限 (1-50年)');
+            if (isNaN(years) || years < 1 || years > 30) {
+                alert('请选择有效的按揭年限 (1-30年)');
                 return;
             }
             const months = years * 12;
